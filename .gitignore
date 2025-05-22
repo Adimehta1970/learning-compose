@@ -1,0 +1,10 @@
+# node ignore
+node_modules/
+dist/
+
+# prisma ignore
+prisma/migrations/
+prisma/generated/
+
+# Keep environment variables out of version control
+.env
