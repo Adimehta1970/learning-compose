@@ -8,3 +8,6 @@ prisma/generated/
 
 # Keep environment variables out of version control
 .env
+
+# typescript ignore
+tsconfig.tsbuildinfo

@@ -15,12 +15,14 @@
 ## Docker Installation
 
 - Install docker
+- Create a network for both your services (database and express server)
+  - `docker network create network-compose`
 - Start postgres
-  - docker run -e POSTGRES_PASSWORD=password -d -p 5432:5432 postgres
+  - `docker run -e POSTGRES_PASSWORD=password -d -p 5432:5432 --name postgres-compose postgres`
 - Build the image
-  - `docker build -t compose-project .`
+  - `docker build --network host -t node-compose .`
 - Start the image
-  - `docker run -p 3000:3000 compose-project`
+  - `docker run --network network-compose -e DATABASE_URL=postgresql://postgres:password@postgres-compose:5432/postgres -p 3000:3000 node-compose`
 
 ## Docker Compose installation steps
 

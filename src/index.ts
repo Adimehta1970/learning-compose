@@ -3,6 +3,7 @@ import { PrismaClient } from "../prisma/generated/prisma";
 
 const app = express();
 const prismaClient = new PrismaClient();
+app.use(express.json());
 
 app.get("/", async (req, res) => {
   const data = await prismaClient.user.findMany();
